@@ -1,0 +1,18 @@
+<head>
+  <title>Electron - Video Info</title>
+</head>
+<body>
+  <h1>Video Info</h1>
+
+  <form action="">
+    <div>
+      <label for="fileSelect">Select a video</label>
+      <input name="fileSelect" type="file" accept="video/*" />
+    </div>
+    <button type="submit">Get info</button>
+  </form>
+  <h1 id="result"></h1>
+  <script>
+    require('./app.js');
+  </script>
+</body>
