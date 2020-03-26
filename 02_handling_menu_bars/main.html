@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <h1>My Todos</h1>
+    <ul id="todos"></ul>
+  </body>
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    const list = document.getElementById('todos');
+
+    ipcRenderer.on('todo:add', (e, todo) => {
+      let newTodo = document.createElement('li');
+      newTodo.innerHTML = todo;
+      list.appendChild(newTodo);
+    });
+
+    ipcRenderer.on('todo:clear', () => (list.innerHTML = ''));
+  </script>
+</html>
